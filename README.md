@@ -49,12 +49,15 @@ xx is a bioinformatics pipeline designed for robust identification of xx. It int
 
 * [**Access Workflow**](https://github.com/Asian-Pan-Genome/)
 
-## Contact
 
-For questions or issues, please contact the corresponding author or open an issue on the GitHub repository.
 
 ---
 
 ## 4. Integrated Analysis (Code Archive)
 
 The `Analysis`
+---
+
+## Contact
+
+For questions or issues, please contact the corresponding author or open an issue on the GitHub repository.
