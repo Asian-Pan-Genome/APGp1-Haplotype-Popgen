@@ -7,27 +7,27 @@ This repository hosts a comprehensive data and workflow resource for **assembly-
 
 Main contents:
 
-* variants and phasing comparison
-* recombination landscape and PRDM9 genotyping
-* ARG reconstruction and selection scan
-* LD, recombination feature, and selection in genomic complex regions
-* pangenome-based genotyping for short-read data
+* 01 variants and phasing comparison
+* 02 recombination landscape and PRDM9 genotyping
+* 03 ARG reconstruction and ARG-based selection scan
+* 04 positively selected SVs and functional relevance
+* 05 LD, recombination feature, and selection in genomic complex regions
+* 06 pangenome-based genotyping for short-read data
 
 ---
 
 ## 2. Data Access
 
-The `Annotation` directory contains the final, high-quality annotation data.
+All **source data** and available download/request links are shown in the corresponding subfolders.
+Navigation:
 
--  in APGp1 : [1](https://github.com/Asian-Pan-Genome/)
+- Genomes & Variant callsets: [1](https://github.com/Asian-Pan-Genome/)
 
--  phased assembly: [2](https://github.com/Asian-Pan-Genome/)
+- Recombination map: [2](https://github.com/Asian-Pan-Genome/)
 
-- : [3](https://github.com/Asian-Pan-Genome/)
+- Publicly available functional summary statistics: [3](https://github.com/Asian-Pan-Genome/)
 
-- : [4](https://github.com/Asian-Pan-Genome/)
-
-- : [5](https://github.com/Asian-Pan-Genome/)
+- NGS BAM files for genotyping: [4](https://github.com/Asian-Pan-Genome/)
 
 ## 3. Detailed Workflows
 
