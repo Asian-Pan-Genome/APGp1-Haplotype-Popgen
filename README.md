@@ -7,10 +7,10 @@ This repository hosts a comprehensive data and workflow resource for **assembly-
 
 Main contents:
 
-* 01 variants and phasing comparison
+* 01 variants-phasing-LD comparison
 * 02 recombination landscape and PRDM9 genotyping
 * 03 ARG reconstruction and ARG-based selection scan
-* 04 positively selected SVs and functional relevance
+* 04 candidate adaptive SVs on positively selected haplotypes and their functional relevance
 * 05 LD, recombination feature, and selection in genomic complex regions
 * 06 pangenome-based genotyping for short-read data
 
