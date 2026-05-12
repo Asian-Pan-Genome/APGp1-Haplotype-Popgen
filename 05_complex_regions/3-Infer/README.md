@@ -1,29 +1,31 @@
-# SV acienstro sequence analysis
+# SV ancestral sequence analysis
 
-This repository contains a pipeline for evauate ancestro state of SVs in human.
+This repository contains a pipeline to evaluate the ancestral state of structural variants (SVs) in humans by comparing human reference and alternative alleles with orthologous sequences from great apes (chimpanzee, bonobo, and gorilla).
 
 ## Requirements
-- Apes genome
-- muscle3
 
-## Pipeline
-First, the flanking 5Kb cordinates and SV refrenece and alternative sequences with its 5Kb flanking sequence are prepared:
-```
-bash
+- **Ape genome assemblies** (chimpanzee, bonobo, gorilla) in FASTA format
+- **LiftOver chain files** converting human coordinates to each ape genome
+- **`muscle3`** – multiple sequence alignment program (v3)
+- Common bioinformatics tools: `bcftools`, `liftOver`, `seqtk`, `awk`, `sed`, `sort`, `join`
+
+## Pipeline overview
+### Prepare human SV sequences
+
+Extract SVs with MAF >= 0.05 from a VCF, create a 5 kb flanks BED file, and retrieve the reference/alternative alleles plus 5 kb flanking regions.
+```bash
 
 for i in `seq 1 22` X Y; do
 chrom="chr${i}"
 bcftools view -e "INFO/MAF <= 0.05" ${chrom}.vcf.gz | bcftools query -f '%CHROM\t%POS\t%END\t%TYPE\t%REF\t%ALT\n' | awk 'OFS="\t"{print $1, $2-1,$3,$4,$5,$6}' 
 done | awk 'OFS="\t" {print $1,$2,$3,$4"_"NR,$5,$6}' > SV.maf5.bed
 python3 alelle_getter.py -b SV.maf5.bed -fa {CHM13}.fasta
-```
-Then, the flanking 5Kb is lifted to the Gorilla, Bonobo and chimpanzee and only the SV with which left and right flankings can be lifted to uniq position in a chromosome are kepted:
-```
-bash
-
-## Lift over the SV flanking regions to the ape genomes and filter the lifted regions. Then, extract the sequences of the lifted regions for further analysis.
 awk 'OFS="\t" {print $1,$2-5000,$2,$4"|left"; print $1,$3, $3+5000,$4"|right"}' SV.maf5.bed > SV.maf5.flank.info
+```
 
+### Lift over flanking regions to ape genomes
+Lift the flank regions each ape genome.
+```bash
 ##The idcheck.py script is used to check if the left and right flanking regions of the same SV are located on the same chromosome. 
 ##Chimpanzee
 liftOver SV.maf5.flank.info {hs1_vs_pantro}.chain.gz SV.maf5.flank.pantro.info SV.maf5.flank.pantro.missing -minMatch=0.80 -multiple
@@ -45,8 +47,10 @@ cut -f1,4 SV.maf5.flank.gorgor.info |  sed "s/|/ /g" | python3 idcheck.py> gorgo
 sed "s/|/\t/g" SV.maf5.flank.gorgor.info | awk '{print $4"|"$1"\t"$0}' | sort -k1,1 | join -1 1 -2 1 - <(awk '{print $1"|"$2}' gorgor.finelift.ids | sort -k1,1) | sed -f <(awk '{print "s/"$1"/"$3"/g"}' gorgor.txt) | awk 'OFS="\t" {print $2,$3,$4,$5,$6}' | sort -k1,1V -k4,4V -k5,5 > SV.maf5.flank.gorgor.finelift.info
 awk 'OFS="\t" {if (NR % 2 == 1) {start = $2; end = $3} else {if(start < $2) {print $1,start,$3,$4,"0","+"} else {print $1,$2,end,$4,"0","-"}}}' SV.maf5.flank.gorgor.finelift.info | awk '$3-$2 < 200000'> SV.maf5.flank.gorgor.finelift.bed
 python3 pyscript/cutbyBed.py -bed SV.maf5.flank.gorgor.finelift.bed -fasta {mGorGor1.analysis-dip.20231122}.fasta -infoonly -dic > SV.maf5.flank.gorgor.finelift.fa 
-``` 
-Finally, the reference and alternatinve SV sequences with the 5Kb flanking sequence and the corresponding 3 apes sequence is aligned via muscle.
+```
+### Ancestral state inference
+
+For each SV, align the human reference/alternative alleles (plus 5 kb flanks) with the corresponding ape sequences using muscle3, then compute the sequence identity between each ape sequence and the two human alleles.
 ```
 bash
 cat *.ids | cut -f1 | sort | uniq | while read a; do
