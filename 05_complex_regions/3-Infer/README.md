@@ -5,8 +5,8 @@ This repository contains a pipeline to evaluate the ancestral state of structura
 ## Requirements
 
 - **Ape genome assemblies** (chimpanzee, bonobo, gorilla) in FASTA format
-- **LiftOver chain files** converting human coordinates to each ape genome
-- **`muscle3`** – multiple sequence alignment program (v3)
+- **LiftOver chain files** 
+- **muscle3** 
 - Common bioinformatics tools: `bcftools`, `liftOver`, `seqtk`, `awk`, `sed`, `sort`, `join`
 
 ## Pipeline overview
