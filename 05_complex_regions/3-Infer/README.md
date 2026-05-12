@@ -51,8 +51,7 @@ python3 pyscript/cutbyBed.py -bed SV.maf5.flank.gorgor.finelift.bed -fasta {mGor
 ### Ancestral state inference
 
 For each SV, align the human reference/alternative alleles (plus 5 kb flanks) with the corresponding ape sequences using muscle3, then compute the sequence identity between each ape sequence and the two human alleles.
-```
-bash
+```bash
 cat *.ids | cut -f1 | sort | uniq | while read a; do
 
    v_pos=`awk -v idx=${a} '{if ($4 == idx) {print $2"-"$3}}' SV.maf5.bed`
