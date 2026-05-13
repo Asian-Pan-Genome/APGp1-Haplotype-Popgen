@@ -18,10 +18,9 @@ Population-averaged recombination maps were projected onto variant positions usi
 
 We further assessed:
 - overlap with public short-read SV resources [(gnomAD SV v4.1)](https://gnomad.broadinstitute.org/data#v4-structural-variants)
-- overlap with 1KCP SV and eQTL resources [(Wang et al. 2026)](https://www.nature.com/articles/s41586-026-10315-y)
-- alternatively represented adaptive SV candidates in CHM13V2.0 and GRCh38
+- overlap with 1KCP SV and eQTL resources (including alternatively represented adaptive SV candidates between CHM13v2.0 and GRCh38 coordinates) [(Wang et al. 2026)](https://www.nature.com/articles/s41586-026-10315-y)
 - population-specific SV frequencies based on 1019-sample 1kGP ONT long-read cohort [(Schloissnig et al. 2025)](https://www.nature.com/articles/s41586-025-09290-7)
-- functional relevance and associations of adaptive SV candidates in UKB WGS sv callset
+- functional relevance and associations of adaptive SV candidates in UKB WGS sv callset [(Carss et al. 2025)](https://www.nature.com/articles/s41586-025-09272-9)
 
 ---
 
