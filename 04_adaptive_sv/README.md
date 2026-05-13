@@ -16,10 +16,10 @@ Haplotype-based statistics were computed using [selscan](https://github.com/szpi
 
 We further assessed:
 - overlap with public short-read SV resources (gnomAD SV v4.1)
-- overlap with 1KCP SV and eQTL resources
-- alternatively represented SVs
-- population-specific SV frequencies
-- functional relevance of adaptive SV candidates
+- overlap with 1KCP SV and eQTL resources (Wang et al. 2026)(https://www.nature.com/articles/s41586-026-10315-y)
+- alternatively represented SVs in CHM13V2.0 and GRCh38
+- population-specific SV frequencies based on 1019-sample 1kGP ONT long-read cohort (Schloissnig et al. 2025)(https://www.nature.com/articles/s41586-025-09290-7)
+- functional relevance and associations of adaptive SV candidates in UKB WGS sv callset
 
 ---
 
