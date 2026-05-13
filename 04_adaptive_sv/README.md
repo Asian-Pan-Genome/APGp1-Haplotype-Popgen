@@ -13,6 +13,7 @@ We polarized biallelic SNPs and SVs (MAF ≥ 0.05) into ancestral and derived st
 - XP-EHH
 
 Haplotype-based statistics were computed using [selscan](https://github.com/szpiech/selscan) and normalized using the companion `norm` utility.
+
 Population-averaged recombination maps were projected onto variant positions using [predictGMAP](https://github.com/szpiech/predictGMAP).
 
 We further assessed:
