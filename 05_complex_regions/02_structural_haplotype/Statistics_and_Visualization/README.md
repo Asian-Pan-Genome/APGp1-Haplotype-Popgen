@@ -3,5 +3,5 @@
 This repository provides the key scripts for visualization and statistics of the complex regions haplotypes.
 
 ### Overview
- - ```pie.sh```
- - ```Fst.sh```
+ - ```pie.sh```: calculate the 
+ - ```Fst.sh```: calculate the Fst between EAS and AFR.
