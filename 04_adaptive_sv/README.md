@@ -1,6 +1,6 @@
 # Positive Selection Scan of Structural Variants
 
-This repository contains scripts used for genome-wide positive selection analyses of structural variants (SVs) based on phased assembly-derived pangenome variation datasets.
+This repository contains scripts used for genome-wide positive selection analyses of polarized biallelic structural variants (SVs) based on phased assembly-derived pangenome variation datasets.
 
 ## Overview
 
@@ -12,7 +12,8 @@ We polarized biallelic SNPs and SVs (MAF ≥ 0.05) into ancestral and derived st
 - XP-nSL
 - XP-EHH
 
-Haplotype-based statistics were computed using [selscan](https://github.com/szpiech/selscan) and normalized using the companion `norm` utility. Population-averaged recombination maps were projected onto variant positions using [predictGMAP](https://github.com/szpiech/predictGMAP).
+Haplotype-based statistics were computed using [selscan](https://github.com/szpiech/selscan) and normalized using the companion `norm` utility.
+Population-averaged recombination maps were projected onto variant positions using [predictGMAP](https://github.com/szpiech/predictGMAP).
 
 We further assessed:
 - overlap with public short-read SV resources [(gnomAD SV v4.1)](https://gnomad.broadinstitute.org/data#v4-structural-variants)
@@ -201,9 +202,9 @@ Genome-wide and phenome-wide association analyses were performed using UK Bioban
 
 # Data Resources
 
-- [gnomAD SV v4.1](https://gnomad-public-us-east-1.s3.amazonaws.com/release/4.1/genome_sv/gnomad.v4.1.sv.sites.vcf.gz?utm_source=chatgpt.com)
-- [1KCP SV resource](https://yanglab.westlake.edu.cn/resources/1kcp/variant/1kcp.sv.vcf.gz?utm_source=chatgpt.com)
-- [1KCP eQTL resource](https://yanglab.westlake.edu.cn/resources/1kcp/eqtl/merge/1kcp.eqtl.summary.tar.gz?utm_source=chatgpt.com)
+- [gnomAD SV v4.1](https://gnomad-public-us-east-1.s3.amazonaws.com/release/4.1/genome_sv/gnomad.v4.1.sv.sites.vcf.gz)
+- [1KCP SV resource](https://yanglab.westlake.edu.cn/resources/1kcp/variant/1kcp.sv.vcf.gz)
+- [1KCP eQTL resource](https://yanglab.westlake.edu.cn/resources/1kcp/eqtl/merge/1kcp.eqtl.summary.tar.gz)
 
 ---
 
