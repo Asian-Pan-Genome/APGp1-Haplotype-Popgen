@@ -1,0 +1,12 @@
+AFR.44.CHM13-APGp1-HPRCp1-HGSVCp3_MC.autosome.ex_tc.final.dip.SNPs.addtag.100k.LDdecay.stat.gz	AFR
+EAS.13.CHM13-APGp1-HPRCp1-HGSVCp3_MC.autosome.ex_tc.final.dip.SNPs.addtag.100k.LDdecay.stat.gz	EAS
+EAS.155.CHM13-APGp1-HPRCp1-HGSVCp3_MC.autosome.ex_tc.final.dip.SNPs.addtag.100k.LDdecay.stat.gz	EAS_APGp1
+EUR.CHM13-APGp1-HPRCp1-HGSVCp3_MC.autosome.ex_tc.final.dip.SNPs.addtag.100k.LDdecay.stat.gz	EUR
+SAS.CHM13-APGp1-HPRCp1-HGSVCp3_MC.autosome.ex_tc.final.dip.SNPs.addtag.100k.LDdecay.stat.gz	SAS
+AMR.CHM13-APGp1-HPRCp1-HGSVCp3_MC.autosome.ex_tc.final.dip.SNPs.addtag.100k.LDdecay.stat.gz	AMR
+AFR/all.ngs.phased.100k.LDdecay.stat.gz	AFR_ngs
+EAS/all.ngs.phased.100k.LDdecay.stat.gz	EAS_ngs
+EAS/CHM13-APGp1.autosome.recalibrated.addtag.filter.panmasked.biallelic.phased.100k.LDdecay.stat.gz	EAS_APGp1_ngs
+EUR/all.ngs.phased.100k.LDdecay.stat.gz	EUR_ngs
+SAS/all.ngs.phased.100k.LDdecay.stat.gz	SAS_ngs
+AMR/all.ngs.phased.100k.LDdecay.stat.gz	AMR_ngs
