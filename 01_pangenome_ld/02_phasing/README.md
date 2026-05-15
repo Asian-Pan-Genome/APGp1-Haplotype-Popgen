@@ -1,4 +1,4 @@
-\# Haplotype Phasing and Comparison
+# Haplotype Phasing and Comparison
 
 
 
@@ -6,7 +6,7 @@ This repository contains scripts used for haplotype phasing, scaffold-based stat
 
 
 
-\## Overview
+## Overview
 
 
 
@@ -18,15 +18,15 @@ Phasing analyses included:
 
 
 
-\- trio-based phasing for benchmarking haplotypes
+- trio-based phasing for benchmarking haplotypes
 
-\- panel-based statistical phasing of SR-derived callsets
+- panel-based statistical phasing of SR-derived callsets
 
-\- scaffold-guided phasing of out-of-panel variants
+- scaffold-guided phasing of out-of-panel variants
 
-\- comparison between statistical and assembly-derived haplotypes
+- comparison between statistical and assembly-derived haplotypes
 
-\- evaluation of switch error rate (SER) and flip error rate (FER)
+- evaluation of switch error rate (SER) and flip error rate (FER)
 
 
 
@@ -34,11 +34,11 @@ Downstream analyses were restricted to autosomes.
 
 
 
-\---
+---
 
 
 
-\## Repository Structure
+## Repository Structure
 
 
 
@@ -74,27 +74,26 @@ Downstream analyses were restricted to autosomes.
 
 
 
-\---
+---
 
 
 
-\# Reference Resources
+# Reference Resources
 
 
 
-\## 1kGP CHM13-native reference panel
+## 1kGP CHM13-native reference panel
 
 
 
 The T2T-CHM13-native phased reference panel for 3,202 samples:
 
 
-
-\[1kGP CHM13-native phased panel](https://s3-us-west-2.amazonaws.com/human-pangenomics/index.html?prefix=T2T%2FCHM13%2Fassemblies%2Fvariants%2F1000\_Genomes\_Project%2Fchm13v2.0%2FPhased\_SHAPEIT5\_v1.1%2F\&utm\_source=chatgpt.com)
-
+[1kGP CHM13-native phased panel](https://s3-us-west-2.amazonaws.com/human-pangenomics/index.html?prefix=T2T%2FCHM13%2Fassemblies%2Fvariants%2F1000\_Genomes\_Project%2Fchm13v2.0%2FPhased\_SHAPEIT5\_v1.1%2F\&utm\_source=chatgpt.com)
 
 
-\## Recombination maps
+
+## Recombination maps
 
 
 
@@ -102,19 +101,19 @@ Population-averaged and scaled genetic maps:
 
 
 
-\[CHM13 recombination maps](https://zenodo.org/records/14891074?utm\_source=chatgpt.com)
+[CHM13 recombination maps](https://zenodo.org/records/14891074?utm\_source=chatgpt.com)
 
 
 
-\---
+---
 
 
 
-\# In-panel Phasing Evaluation
+# In-panel Phasing Evaluation
 
 
 
-\## 1. Intersect phased SR and assembly-derived variants
+## 1. Intersect phased SR and assembly-derived variants
 
 
 
@@ -130,11 +129,11 @@ Shared variants between statistically phased SR callsets and assembly-derived ha
 
 
 
-\---
+---
 
 
 
-\## 2. Evaluate SR-based phasing accuracy
+## 2. Evaluate SR-based phasing accuracy
 
 
 
@@ -150,11 +149,11 @@ Trio-phased haplotypes were used as benchmark truth sets for evaluating SR-deriv
 
 
 
-\---
+---
 
 
 
-\## 3. Evaluate assembly-derived phasing accuracy
+## 3. Evaluate assembly-derived phasing accuracy
 
 
 
@@ -170,11 +169,11 @@ Assembly-derived haplotypes were compared against trio-phased benchmark haplotyp
 
 
 
-\---
+---
 
 
 
-\## 4. Summarize SER and FER statistics
+## 4. Summarize SER and FER statistics
 
 
 
@@ -202,15 +201,15 @@ Paired statistical testing:
 
 
 
-\---
+---
 
 
 
-\# Out-of-panel Phasing Evaluation
+# Out-of-panel Phasing Evaluation
 
 
 
-\## 1. Scaffold-based statistical phasing
+## 1. Scaffold-based statistical phasing
 
 
 
@@ -230,11 +229,11 @@ Assembly-derived haplotypes without missingness at overlapping in-panel sites we
 
 
 
-\---
+---
 
 
 
-\## 2. Evaluate out-of-panel phasing accuracy
+## 2. Evaluate out-of-panel phasing accuracy
 
 
 
@@ -250,11 +249,11 @@ Scaffold-phased variants were benchmarked against assembly-derived haplotypes us
 
 
 
-\---
+---
 
 
 
-\## 3. Summarize out-of-panel SER and FER
+## 3. Summarize out-of-panel SER and FER
 
 
 
@@ -266,11 +265,11 @@ Scaffold-phased variants were benchmarked against assembly-derived haplotypes us
 
 
 
-\---
+---
 
 
 
-\# Main Software
+# Main Software
 
 
 
@@ -286,11 +285,11 @@ Scaffold-phased variants were benchmarked against assembly-derived haplotypes us
 
 
 
-\# Metrics
+# Metrics
 
 
 
-\## Switch Error Rate (SER)
+## Switch Error Rate (SER)
 
 
 
@@ -298,7 +297,7 @@ SER measures the proportion of heterozygous variants incorrectly phased relative
 
 
 
-\## Flip Error Rate (FER)
+## Flip Error Rate (FER)
 
 
 
@@ -306,11 +305,11 @@ FER measures the proportion of consecutive heterozygous variants exhibiting back
 
 
 
-\---
+---
 
 
 
-\# Citation
+# Citation
 
 
 
