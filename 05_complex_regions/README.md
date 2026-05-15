@@ -33,7 +33,7 @@ using pangenome graph topology and assembly-derived SV calls.
 
 #### SCR Identification
 
-SCRs were identified from 1-kb windows with 500-bp steps using graph-derived complexity annotations.
+SCRs were identified from 1-kb windows with 500-bp steps using graph-derived complexity annotations [(Han et al. 2026)](under review).
 
 Windows were classified into:
 
