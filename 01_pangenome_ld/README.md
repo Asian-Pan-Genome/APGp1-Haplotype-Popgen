@@ -1,4 +1,4 @@
-# Population Genomics Analysis Pipeline
+# Variant-Phasing-Linkage Analysis Pipeline
 
 This repository contains workflows for variant discovery, haplotype phasing, and linkage disequilibrium (LD) structure analysis using short-read and pangenome-based genomic data.
 
