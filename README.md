@@ -46,7 +46,8 @@ Navigation:
   + [Regulatory elements annotation](https://downloads.wenglab.org/GRCh38-cCREs.Lifted-hs1.bed)
 
 
-- NGS BAM files for genotyping: [4](https://github.com/Asian-Pan-Genome/)
+- NGS BAM files for genotyping: [4](https://github.com/Asian-Pan-Genome/APGp1-Haplotype-Popgen/tree/main/06_genotyping_panel)
+
 
 ## Contact
 
