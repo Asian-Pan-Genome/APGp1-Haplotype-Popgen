@@ -14,6 +14,8 @@ Main contents:
 * [05](https://github.com/Asian-Pan-Genome/APGp1-Haplotype-Popgen/tree/main/05_complex_regions) - LD, recombination feature, and selection in genomic complex regions
 * [06](https://github.com/Asian-Pan-Genome/APGp1-Haplotype-Popgen/tree/main/06_genotyping_panel) - pangenome-based genotyping for short-read data
 
+See each subfolder's `README.md` for details.
+
 ---
 
 ## Data Access
