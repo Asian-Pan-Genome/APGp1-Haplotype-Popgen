@@ -38,7 +38,6 @@ Haplotype phasing workflows and reference panel analyses.
 - Reference panel preparation
 - Haplotype phasing
 - Phasing comparison and evaluation
-- Recombination map integration
 
 ---
 
@@ -50,8 +49,7 @@ Analyses of linkage disequilibrium and haplotype structure across genomic region
 
 - LD calculation
 - Haplotype block inference
-- Recombination rate analyses
 - Structural variant effects on LD structure
-- Segmental duplication and inversion analyses
+
 
 ---
