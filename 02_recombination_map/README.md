@@ -1,6 +1,25 @@
-# 02_recombination_map
+# Fine-Scale Recombination Landscape Analysis in APGp1-CHA
 
-```
+This repository contains scripts and workflows for fine-scale recombination rate inference, PRDM9 binding-site prediction, hotspot analysis, and recombination landscape characterization in the APGp1-CHA population.
+
+---
+
+## Overview
+
+This project includes:
+
+- Demographic inference using SMC++
+- Fine-scale recombination map inference using Pyrho
+- Comparison with published CHM13-native 1kGP recombination maps
+- Recombination analyses in segmental duplications (SDs) and inversions
+- PRDM9 genotyping using pangenome-derived multiple sequence alignment (MAF)
+- PRDM9 binding-site prediction with FIMO
+- Recombination rate decay profiling around PRDM9 motifs
+
+---
+
+## Directory Structure
+```text
 .
 ├── 01_recombination_map/
 │   ├── 01_smcpp.sh
@@ -19,43 +38,6 @@
 ```
 
 See each subfolder's `README.md` for details.
-
-# Fine-Scale Recombination Landscape Analysis in APGp1-CHA
-
-This repository contains scripts and workflows for fine-scale recombination rate inference, PRDM9 binding-site prediction, hotspot analysis, and recombination landscape characterization in the APGp1-CHA population.
-
----
-
-## Overview
-
-This project includes:
-
-- Fine-scale recombination map inference using Pyrho
-- Demographic inference using SMC++
-- PRDM9 binding-site prediction with FIMO
-- Comparison with published CHM13-native 1kGP recombination maps
-- Recombination analyses in segmental duplications (SDs) and inversions
-- Recombination rate decay profiling around PRDM9 motifs
-
----
-
-## Directory Structure
-
-```text
-.
-├── scripts/
-│   ├── smcpp/
-│   ├── pyrho/
-│   ├── prdm9/
-│   ├── hotspot/
-│   ├── sd_analysis/
-│   ├── inversion_analysis/
-│   └── motif_decay/
-├── config/
-├── data/
-├── results/
-└── README.md
-```
 
 ---
 
@@ -88,13 +70,13 @@ Population demographic history between 100 and 5 × 10^5 generations ago was inf
 ### Related Scripts
 
 ```text
-scripts/smcpp/
-scripts/pyrho/
+01_recombination_map
+03_recombination_landscape_analysis
 ```
 
 ---
 
-## 2. PRDM9 Binding-Site Prediction
+## 2. PRDM9 genotyping
 
 Potential PRDM9 binding sites across the CHM13v2.0 reference genome were predicted using FIMO.
 
@@ -109,16 +91,11 @@ CCNCCNTNNCCNC
 ### High-Confidence PRDM9 Motifs
 
 ```text
-Human1–Human7
+Human1–Human7 from [(Altemose et al. 2017)](https://doi.org/10.7554/eLife.28383)
 ```
 
 Human7 was regarded as a high-affinity PRDM9-B preferred binding motif.
 
-### Related Scripts
-
-```text
-scripts/prdm9/
-```
 
 ---
 
@@ -197,13 +174,35 @@ Inversion-associated recombination rates were compared against:
 ### Related Scripts
 
 ```text
-scripts/sd_analysis/
-scripts/inversion_analysis/
+03_recombination_landscape_analysis
 ```
 
 ---
 
-## 5. Recombination Rate Decay Around PRDM9 Binding Motifs
+## 5. PRDM9 Binding-Site Prediction
+
+Potential PRDM9 binding sites across the CHM13v2.0 reference genome were predicted using FIMO.
+
+Motif scanning included:
+
+### Canonical Degenerate 13-mer Motif
+
+```text
+CCNCCNTNNCCNC
+```
+
+### High-Confidence PRDM9 Motifs
+
+```text
+Human1–Human7 from [(Altemose et al. 2017)](https://doi.org/10.7554/eLife.28383)
+```
+
+Human7 was regarded as a high-affinity PRDM9-B preferred binding motif.
+
+
+---
+
+## 6. Recombination Rate Decay Around PRDM9 Binding Motifs
 
 Two classes of PRDM9 motifs were analyzed:
 
