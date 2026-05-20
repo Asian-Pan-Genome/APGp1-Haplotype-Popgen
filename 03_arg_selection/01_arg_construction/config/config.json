@@ -1,0 +1,16 @@
+{
+  "window_size": 500000,
+  "grid_size": 1000,
+  "ne": 20000,
+  "mut_rate": 1.25e-8,
+  "fake_mutmap": "{CONFIG_DIR}/fake_mutmap.txt",
+  "chain_to_chm13": "{DATA_DIR}/chain_files/grch38-chm13v2.chain",
+  "chain_to_grch38": "{DATA_DIR}/chain_files/chm13v2-grch38.chain",
+  "max_missingness": 0.05,
+  "grch38_ancestral": "{DATA_DIR}/homo_sapiens_ancestor_GRCh38/",
+  "chm13_ancestral": "{DATA_DIR}/T2T_Ancestral/",
+  "grch38_ratemaps": "{DATA_DIR}/ratemaps/",
+  "chm13_ratemaps": "{DATA_DIR}/pyrho.chm13/",
+  "mcmc_samples": 50,
+  "mcmc_thin": 50
+}
