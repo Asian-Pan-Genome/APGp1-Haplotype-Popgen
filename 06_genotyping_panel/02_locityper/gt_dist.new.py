@@ -87,9 +87,9 @@ class Distances:
                 assert nmatches <= aln_size
                 dist = (aln_size - nmatches, aln_size)
                 
-                # 关键：这里itertools.product会将所有等价的单倍型组合都存入字典
-                # 所以即使PAF只写了 APGp1_A vs APGp1_B，
-                # 只要discarded文件有对应关系，HPRC_1 vs HPRC_2 的条目也会被创建
+                # Store all equivalent haplotype combinations in the distance dictionary.
+                # Therefore, even if the PAF only contains APGp1_A versus APGp1_B,
+                # entries such as HPRC_1 versus HPRC_2 are also created when the discarded file links them.
                 for hap1a, hap2a in itertools.product(self.group(hap1), self.group(hap2)):
                     self.distances[hap1a][hap2a] = dist
                     self.distances[hap2a][hap1a] = dist
@@ -128,44 +128,44 @@ class Distances:
     def all_distances(self, genotype, allowed_samples=None):
         """
         Args:
-            genotype: 目标基因型 (hap1, hap2...)
-            allowed_samples: (set or None) 如果不为None，只允许Query属于这些样本。
-                             用于在全量PAF中只计算小Panel的Availability。
+            genotype: Target genotype (hap1, hap2, ...).
+            allowed_samples: Optional set of sample names allowed as query haplotypes.
+                             This is used to estimate availability for a smaller panel from the full PAF.
         """
-        # 检查genotype是否在数据库中
+        # Check whether all genotype haplotypes are present in the distance database.
         for hap in genotype:
             if hap not in self.distances:
                 return None
 
         pred_dists = {}
         
-        # 辅助函数：检查单倍型是否属于允许的样本列表
+        # Helper function: check whether a haplotype belongs to the allowed sample set.
         def is_allowed(hap_name):
             if allowed_samples is None:
                 return True
-            # 假设命名格式为 Sample.Haplotype (例如 HG002.1 或 C003-CHA-E03.2)
-            # 通过 split('.')[0] 获取样本名
+            # Assume the naming format is Sample.Haplotype, for example HG002.1 or C003-CHA-E03.2.
+            # Extract the sample name by removing the terminal haplotype suffix.
             sample_name = hap_name.rsplit('.', 1)[0]
             return sample_name in allowed_samples
 
-        # ================== 新增：单倍体处理逻辑 ==================
+        # ================== Haploid genotype handling ==================
         if len(genotype) == 1:
             hap1 = genotype[0]
-            # 遍历该单倍体与所有其他单倍体的距离
+            # Iterate over distances between this haplotype and all other haplotypes.
             for hap2, (edit, size) in self.distances[hap1].items():
                 if not is_allowed(hap2):
                     continue
                 if size == 0:
                     continue
                 div = edit / size
-                query = (hap2,) # 查询结果也是单倍体
+                query = (hap2,)  # The query genotype is also haploid.
                 pred_dists[query] = (div, edit, size)
 
-        # ================== 原有的二倍体处理逻辑 ==================
+        # ================== Diploid genotype handling ==================
         elif len(genotype) == 2:
             hap_dists = [self.distances[genotype[0]].items(), self.distances[genotype[1]].items()]
             for (h1, (e1, s1)), (h2, (e2, s2)) in itertools.product(*hap_dists):
-                # 过滤：两个query单倍型都必须在允许列表中
+                # Filter out query genotypes unless both haplotypes are allowed.
                 if not (is_allowed(h1) and is_allowed(h2)):
                     continue
                 
@@ -288,15 +288,15 @@ def get_genotype(s, split, sep):
     gt_str = ','.join(tup)
 
     if len(tup) == 1:
-        # 如果输入是单个值，我们将其视为单倍体基因型
-        # 用户可以通过提供 "sample.1,sample.2" 来指定二倍体
+        # A single input value is treated as a haploid genotype.
+        # Users can provide "sample.1,sample.2" to specify a diploid genotype.
         return gt_str, (tup[0],)
         
     if len(tup) == 2:
-        # 如果输入是逗号分隔的两个值，视为二倍体
+        # Two comma-separated values are treated as a diploid genotype.
         return gt_str, tup
 
-    # 不支持其他情况
+    # Other ploidies are not supported.
     raise ValueError(f'Genotype must be haploid (e.g., "hap1") or diploid (e.g., "hap1,hap2"), but got "{s}"')
 
 
@@ -311,7 +311,7 @@ def load_target_genotypes(args):
                 genotypes.append(get_genotype(line, ',', args.sep))
     return genotypes
 
-# 加载允许查询的样本列表
+# Load the list of samples allowed as query haplotypes.
 def load_allowed_query_samples(path):
     if not path:
         return None
@@ -320,7 +320,7 @@ def load_allowed_query_samples(path):
         for line in f:
             line = line.strip()
             if line and not line.startswith('#'):
-                # 假设文件每一行是一个Sample ID (例如 HG002)
+                # Assume each line contains one sample ID, for example HG002.
                 allowed.add(line.split()[0])
     return allowed
 
@@ -330,7 +330,7 @@ def is_loo(target, query):
 
 def calc_gt_distances(genotypes, distances, out, max_entries, loo=False, allowed_samples=None):
     for gt_str, genotype in genotypes:
-        # 将 allowed_samples 传递给 all_distances 进行过滤
+        # Pass allowed_samples to all_distances for query-panel filtering.
         pred_dists = distances.all_distances(genotype, allowed_samples=allowed_samples)
         
         if pred_dists is None:
@@ -370,7 +370,7 @@ def main():
         help='Output at most INT entries per target genotype [default: all].')
     parser.add_argument('--loo', action='store_true',
         help='Experiment performed in the leave-one-out setting. [default: False]', default=False)
-    # 新增参数：允许的查询样本列表
+    # Optional query-sample whitelist.
     parser.add_argument('-Q', '--query-samples', metavar='FILE',
         help='File containing list of sample names allowed to be used as queries. '
              'If provided, only haplotypes belonging to these samples will be considered as matches.')
