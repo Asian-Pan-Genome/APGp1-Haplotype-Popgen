@@ -76,26 +76,64 @@ Population demographic history between 100 and 5 × 10^5 generations ago was inf
 
 ---
 
-## 2. PRDM9 genotyping
+## 2. PRDM9 Genotyping and PRDM9 Allele Diversity Analysis
 
-Potential PRDM9 binding sites across the CHM13v2.0 reference genome were predicted using FIMO.
+Workflows for identifying PRDM9 zinc-finger (ZF) alleles from pangenome assemblies and performing motif binding analyses, including:
 
-Motif scanning included:
+- PRDM9 zinc-finger identification and annotation
+- Extract PRDM9 haplotypes from HAL pangenome alignments
+- PRDM9 allele assignment and novel ZF discovery
+- Motif prediction and PWM clustering analyses
 
-### Canonical Degenerate 13-mer Motif
+---
 
-```text
-CCNCCNTNNCCNC
-```
+### 1.zf_annotation
 
-### High-Confidence PRDM9 Motifs
+Identification of PRDM9 C2H2 zinc-finger units using RepeatMasker and a custom ZF library.
 
-```text
-Human1–Human7 from [(Altemose et al. 2017)](https://doi.org/10.7554/eLife.28383)
-```
+#### Includes
 
-Human7 was regarded as a high-affinity PRDM9-B preferred binding motif.
+- Custom PRDM9 ZF library
+- RepeatMasker-based ZF annotation
+- CHM13v2 PRDM9 exon11 analyses
 
+---
+
+### 2.hal_extraction
+
+Extraction of PRDM9 ZF arrays from pangenome HAL alignments.
+
+#### Includes
+
+- `halLiftover` coordinate projection
+- Haplotype sequence extraction
+- PRDM9 region retrieval from phased assemblies
+
+---
+
+### 3.allele_curation
+
+Annotation and classification of PRDM9 alleles.
+
+#### Includes
+
+- Known ZF assignment
+- Novel ZF discovery (`ZF_New_i`)
+- PRDM9 allele catalog generation
+- Misassembly filtering
+
+---
+
+## 4.motif_binding
+
+Prediction and clustering of PRDM9 binding motifs.
+
+#### Includes
+
+- PWM prediction from amino acid sequences
+- A-type and C-type motif classification
+- motifStack/motifPiles visualization
+- Binding residue comparison analyses
 
 ---
 
