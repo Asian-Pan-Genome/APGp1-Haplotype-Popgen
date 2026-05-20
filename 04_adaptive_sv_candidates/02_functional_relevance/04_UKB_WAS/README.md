@@ -39,7 +39,7 @@ SV matching between candidate SVs and UKB individual SV VCFs was performed using
 
 To improve matching robustness across different SV representations:
 
-- All SV genotypes were fixed to `1/1`
+- All SV genotypes were fixed to `1/1` after removing BNDs.
 - Matching was performed at the variant level
 - Breakpoint uncertainty and allele decomposition were tolerated
 
