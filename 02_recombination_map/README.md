@@ -87,7 +87,7 @@ Workflows for identifying PRDM9 zinc-finger (ZF) alleles from pangenome assembli
 
 ---
 
-### 1.zf_annotation
+### zf_annotation
 
 Identification of PRDM9 C2H2 zinc-finger units using RepeatMasker and a custom ZF library.
 
@@ -99,7 +99,7 @@ Identification of PRDM9 C2H2 zinc-finger units using RepeatMasker and a custom Z
 
 ---
 
-### 2.hal_extraction
+### hal_extraction
 
 Extraction of PRDM9 ZF arrays from pangenome HAL alignments.
 
@@ -111,7 +111,7 @@ Extraction of PRDM9 ZF arrays from pangenome HAL alignments.
 
 ---
 
-### 3.allele_curation
+### allele_curation
 
 Annotation and classification of PRDM9 alleles.
 
@@ -124,7 +124,7 @@ Annotation and classification of PRDM9 alleles.
 
 ---
 
-## 4.motif_binding
+## motif_binding
 
 Prediction and clustering of PRDM9 binding motifs.
 
