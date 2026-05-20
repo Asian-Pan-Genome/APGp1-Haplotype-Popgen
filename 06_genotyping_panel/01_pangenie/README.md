@@ -9,8 +9,8 @@
 - bedtools
 - samtools
 
-# Run Pangenie
-First construct the Pangenie index file:
+# Running Pangenie
+First, construct the Pangenie index file:
 ```shell
 singularity run -B $(pwd):$(pwd) pangenie.sif PanGenie-index -v input.multi.vcf -r CHM13v2.fasta -t 32 -o index
 ```
@@ -39,13 +39,13 @@ bash run_pangenie_loo_clean.sh sample.list
 ```
 
 # Genotype filtering and quality assessment
-## Data process
+## Data processing
 Prepare necessary files before filtering genotypes.
 ```shell
 bash prepare_for_SVM.sh
 ```
 
-## Run regression model
+## Running regression model
 ```shell
 python3 analysis-stepwise.py -t summary_bi_all.tsv -o plot_bi_all -n 20 --regression-only
 python3 analysis-stepwise.py -t plot_bi_all_regression.tsv -o plot_bi_all -n 20 --plot-only
