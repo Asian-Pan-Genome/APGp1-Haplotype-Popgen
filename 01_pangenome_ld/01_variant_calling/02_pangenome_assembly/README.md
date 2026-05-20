@@ -58,6 +58,7 @@ The downstream workflow includes:
 - Minigraph-Cactus >= 2.7.2
 - Minimap2 >= 2.26
 - vcfwave >= 1.0.13
+- vg
 
 ## External workflows
 
@@ -82,7 +83,7 @@ Global pangenome graphs were generated using Minigraph-Cactus with T2T-CHM13v2.0
 
 Unanchored contigs and mitochondrial assemblies were excluded.
 
-For PAR regions, fragmented assemblies were rescued using Minimap2 alignments against CHM13v2.0 PAR intervals.
+For PAR regions, fragmented assemblies were rescued using Minimap2 alignments against CHM13v2.0 PAR intervals. See details in [APGp1-Y repo](https://github.com/Asian-Pan-Genome/APGp1-Y/blob/main/07.%20Analysis%20of%20Y-linked%20variations/02.%20Structural%20variation%20analysis%20for%20PAR%20and%20MSY/README.md).
 
 ---
 
@@ -91,20 +92,19 @@ For PAR regions, fragmented assemblies were rescued using Minimap2 alignments ag
 Variants were extracted from the pangenome graph using:
 
 ```bash
-vg deconstruct
+vg deconstruct CHM13-APGp1-HPRCp1-HGSVCp3_MC.gbz -P CHM13v2 -C -a -t 32 -r CHM13-APGp1-HPRCp1-HGSVCp3_MC.snarls -O | bgzip --threads 32 -c > CHM13-APGp1-HPRCp1-HGSVCp3_MC.raw.vcf.gz
 ```
 
 Large and nested indels (>100 kb) were removed using:
 
 ```bash
-vcfbub
+vcfbub -l 0 -r 100000 -i CHM13-APGp1-HPRCp1-HGSVCp3_MC.raw.vcf.gz > CHM13-APGp1-HPRCp1-HGSVCp3_MC.vcf
 ```
 
 Subsequent processing included:
 
-- decomposition of nested alleles
-- full normalization using vcfwave
-- SV collapsing and deduplication
+- decomposition of nested alleles (see [VCF preparation pipeline](https://github.com/eblerjana/genotyping-pipelines/tree/main/prepare-vcf-MC))
+- SV collapsing and deduplication (see [SV collapsing workflow](https://github.com/Han-Cao/collapse-bubble/tree/pangenie-pipeline))
 - genotype-aware variant merging
 - phased VCF conversion
 
